@@ -1,0 +1,135 @@
+/* IMPORTAÇÃO DA FONTE */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Para aplicação do tema escuro, utilizar a definição de :root */
+:root {
+    --text-color: white;
+    --bg-url: url("./assets/background-black-desktop.jpg");
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url("./assets/background-light-desktop.jpg");
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+
+body {
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 360px;
+    /* O CSS possui uma regra que permite aplicar o auto somente a left e right. Top e bottom não recebem auto. */
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    /* display: block; */
+        /* Margin auto não pode ser aplicado em elementos inline, dessa forma, precisamos transformar a img em block para poder aplicar o margin */
+        /* Caso não queira transformar em block e utilizar margin, pode utilizar text-align no elemento pai */
+    /* margin: auto; */
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/* LINKS */
+
+ul {
+    list-style: none;
+    
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px;
+    /* Propriedades aplicadas nos elementos filhos li */
+
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px); 
+    /* backdrop é suportado por alguns navegadores. Pode verificar o suporte com o Can I Use */
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* Links Sociais */
+#social-links {
+    display: flex;
+    justify-content: center;
+
+    padding: 24px 0;
+
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+    border-radius: 50%;
+
+    transition: background 0.2s;
+}
+
+#social-links a:hover {
+    background-color: var(--highlight-color);
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+}
