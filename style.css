@@ -16,6 +16,7 @@
     --surface-color: rgba(255, 255, 255, 0.1);
     --surface-color-hover: rgba(255, 255, 255, 0.05);
     --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
 }
 
 .light {
@@ -25,6 +26,7 @@
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
 }
 
 
@@ -47,6 +49,8 @@ body * {
     padding: 0 24px;
 }
 
+/* Profile */
+
 #profile {
     text-align: center;
     padding: 24px;
@@ -65,6 +69,49 @@ body * {
     line-height: 24px;
     margin-top: 8px;
 }
+
+/* Switch */
+
+#switch {
+    position: relative; /* Limita o movimento dos filhos somente dentro do espaço do pai */
+    width: 64px;
+    
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    background-image: var(--switch-bg-url);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    --wekit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
 
 /* LINKS */
 
