@@ -35,6 +35,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+    height: 100vh;
 }
 
 body * {
@@ -92,13 +93,22 @@ body * {
     position: absolute;
     top: 50%;
     z-index: 1;
-    left: 0;
+    /* left: 0; */
     transform: translateY(-50%);
+
+    animation: slide-back 0.4s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    /* right: 0;
+    left: initial; */
+
+    animation: slide-in 0.4s forwards;
+    /* forwards mantêm a posição em que a animação termina */
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -179,4 +189,26 @@ ul li a:hover {
 footer {
     padding: 24px 0;
     text-align: center;
+}
+
+/* animation */
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }
